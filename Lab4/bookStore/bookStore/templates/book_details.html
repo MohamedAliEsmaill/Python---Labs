@@ -1,0 +1,36 @@
+{% extends 'main/base_layout.html' %}
+<!---->
+{% block title %} Book Details {% endblock %}
+<!---->
+{% block main-content %}
+<div class="container mx-auto flex flex-col items-center justify-center mt-24">
+  <h2 class="text-center text-2xl font-semibold text-gray-800">
+    {{ book.title }}
+  </h2>
+  <div class="mt-8 p-4 rounded-lg shadow-lg bg-gray-100 w-3/4">
+    <div class="flex flex-col items-center">
+      <p class="mt-4 text-base font-light text-gray-700">
+        {{ book.description }}
+      </p>
+    </div>
+    <ul class="mt-6">
+      <li
+        class="flex items-center justify-between py-2 px-4 bg-gray-200 rounded-md"
+      >
+        <span class="text-base font-semibold text-gray-800">Rate:</span>
+        <span class="text-base font-semibold text-green-600"
+          >{{ book.rate }}</span
+        >
+      </li>
+      <li
+        class="flex items-center justify-between py-2 px-4 bg-gray-200 rounded-md"
+      >
+        <span class="text-base font-semibold text-gray-800">Views:</span>
+        <span class="text-base font-semibold text-green-600"
+          >{{ book.views }}</span
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
