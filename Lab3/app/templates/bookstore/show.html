@@ -1,0 +1,27 @@
+{% extends 'main.html' %} 
+{% block title %}Bookstore{% endblock %}
+{% block content %}
+
+
+<div class="container mt-5 justify-content-center align-items-center">
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h5 >{{ book.title }}</h5>
+            <a href="{% url 'show' book.id %}" class="btn btn-primary">View</a>
+          </div>
+          <p class="card-text">{{ book.description }}</p>
+          <p class="card-text">
+            Authored by: ${{ book.author }} - At: {{ book.published_date  }}
+          </p>
+          <a href="{% url 'edit' book.id %}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'delete' book.id %}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+{% endblock %}

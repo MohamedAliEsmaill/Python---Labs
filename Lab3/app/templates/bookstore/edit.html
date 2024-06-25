@@ -1,0 +1,53 @@
+{% extends 'main.html' %} 
+{% block title %}Bookstore{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+  <h1 class="text-center">Update Book</h1>
+
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <form action="{% url 'update' book.id %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            value="{{ book.title }}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" name="description">
+{{ book.description }}</textarea
+          >
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            name="author"
+            value="{{ book.author }}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="published_date" class="form-label">Published Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="published_date"
+            name="published_date"
+            value="{{ book.published_date }}"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Update Book</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
